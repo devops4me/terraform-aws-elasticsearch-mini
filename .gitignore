@@ -1,0 +1,16 @@
+
+# Ignore the .terraform configuration folder which includes
+# a large cached binary that is divorced from the changeable
+# system binary.
+**/.terraform/*
+
+# Ignore all files produced to hold and backup state which
+# includes terraform.tfstate and terraform.tfstate.backup
+*.tfstate
+*.tfstate.*
+
+# Ignore log file created by request to get eni addresses
+*.log
+
+# When terraform crashes it can leave this file behind.
+crash.log
