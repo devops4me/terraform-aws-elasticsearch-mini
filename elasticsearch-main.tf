@@ -36,11 +36,7 @@ resource aws_elasticsearch_domain mini {
         "rest.action.multi.allow_explicit_index" = "true"
     }
 
-    tags = {
-        Name  = "${ var.in_ecosystem_name }-${ var.in_tag_timestamp }"
-        Class = var.in_ecosystem_name
-        Desc  = "This mini elasticsearch domain ${ var.in_tag_description }"
-    }
+    tags = merge( local.elasticsearch_tags, var.in_mandatory_tags )
 
 }
 
@@ -65,6 +61,16 @@ data aws_iam_policy_document es-cloud-iam-policy {
             "arn:aws:es:${data.aws_region.with.name}:${data.aws_caller_identity.with.account_id}:domain/${var.in_ecosystem_name}/*"
         ]
     }
+}
+
+
+locals {
+
+    elasticsearch_tags = {
+        Name  = "es-${ var.in_ecosystem_name }-${ var.in_tag_timestamp }"
+        Desc  = "This elasticsearch cluster for the ${ var.in_ecosystem_name } ${ var.in_tag_description }"
+    }
+
 }
 
 
