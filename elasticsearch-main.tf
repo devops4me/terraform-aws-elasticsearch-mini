@@ -14,8 +14,8 @@ resource aws_elasticsearch_domain mini {
 
         instance_type            = var.in_worker_type
     	instance_count           = var.in_worker_count
-    	dedicated_master_enabled = var.in_use_dedicated_masters
-    	zone_awareness_enabled   = var.in_zone_aware
+    	dedicated_master_enabled = false
+    	zone_awareness_enabled   = false
     }
 
     vpc_options {

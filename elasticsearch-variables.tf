@@ -14,7 +14,7 @@
 
 variable in_es_version {
     description = "The required version of elasticsearch."
-    default = "6.3"
+    default = "7.1"
 }
 
 
@@ -24,17 +24,7 @@ variable in_es_version {
 
 variable in_worker_type {
     description = "The ec2 instance type to use for elasticsearch worker nodes."
-    default = "t2.small.elasticsearch"
-}
-
-
-### ########################### ###
-### [[variable]] in_master_type ###
-### ########################### ###
-
-variable in_master_type {
-    description = "The ec2 instance type to use for elasticsearch master nodes."
-    default = "t2.small.elasticsearch"
+    default = "m5.large.elasticsearch"
 }
 
 
@@ -44,37 +34,7 @@ variable in_master_type {
 
 variable in_worker_count {
     description = "The (mandatorily even) ec2 elasticsearch worker node count so that half are deployed in each of the 2 zones."
-    default = "4"
-}
-
-
-### ############################ ###
-### [[variable]] in_master_count ###
-### ############################ ###
-
-variable in_master_count {
-    description = "The (mandatorily even) ec2 elasticsearch master node count so that half are deployed in each of the 2 zones."
-    default = "2"
-}
-
-
-### ##################################### ###
-### [[variable]] in_use_dedicated_masters ###
-### ##################################### ###
-
-variable in_use_dedicated_masters {
-    description = "True means that dedicated master nodes will be used."
-    default = "false"
-}
-
-
-### ########################## ###
-### [[variable]] in_zone_aware ###
-### ########################## ###
-
-variable in_zone_aware {
-    description = "Use the (maximum) two availability zones instead of just one."
-    default = "true"
+    default = 2
 }
 
 
@@ -84,27 +44,7 @@ variable in_zone_aware {
 
 variable in_volume_size {
     description = "The size of the EBS volume."
-    default = "16"
-}
-
-
-### ########################### ###
-### [[variable]] in_kms_key_ref ###
-### ########################### ###
-
-variable in_kms_key_ref {
-    description = "The reference part of the KMS key arn for encrypting data at rest."
-    default = ""
-}
-
-
-### ############################ ###
-### [[variable]] in_snaphot_hour ###
-### ############################ ###
-
-variable in_snaphot_hour {
-    description = "What hour of the day should AWS take the daily elasticsearch volume snapshot."
-    default = "22"
+    default = 32
 }
 
 
