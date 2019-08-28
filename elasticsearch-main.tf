@@ -21,7 +21,7 @@ resource aws_elasticsearch_domain mini {
     vpc_options {
 
         security_group_ids  = [ var.in_security_group_id ]
-        subnet_ids          = var.in_private_ids
+        subnet_ids          = var.in_subnet_ids
     }
 
     access_policies = data.aws_iam_policy_document.es-cloud-iam-policy.json

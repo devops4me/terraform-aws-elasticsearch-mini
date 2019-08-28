@@ -121,8 +121,9 @@ variable in_security_group_id {
 ### [[variable]] in_subnet_ids ###
 ### ########################## ###
 
-variable in_private_ids {
-    type = "list"
+variable in_subnet_ids {
+    description = "The list of subnets that the elasticsearch cluster nodes will inhabit."
+    type = list
 }
 
 

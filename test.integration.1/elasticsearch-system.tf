@@ -13,7 +13,7 @@ provider aws {
 module es_domain_mini {
     source          = "./.."
 
-    in_private_ids       = module.vpc-network.out_public_subnet_ids
+    in_subnet_ids       = module.vpc-network.out_public_subnet_ids
     in_security_group_id = module.security-group.out_security_group_id
 
     in_ecosystem_name  = local.in_ecosystem
@@ -36,8 +36,8 @@ module vpc-network {
 
     source                 = "github.com/devops4me/terraform-aws-vpc-network"
     in_vpc_cidr            = "10.77.0.0/16"
-    in_num_public_subnets  = 3
-    in_num_private_subnets = 3
+    in_num_public_subnets  = 2
+    in_num_private_subnets = 0
 
     in_ecosystem_name  = local.in_ecosystem
     in_tag_timestamp   = local.in_timestamp
