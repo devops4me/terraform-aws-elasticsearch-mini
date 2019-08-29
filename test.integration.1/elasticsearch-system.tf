@@ -1,16 +1,12 @@
 
-provider aws {
-    assume_role {
-        role_arn = var.in_role_arn
-    }
-}
-
-
-### ######################### ###
-### [[module]] es_domain_mini ###
-### ######################### ###
-
+/*
+ | --
+ | -- Create a simple elasticsearch database cluster within the VPC and
+ | -- subnets that we dictate for this module integration test.
+ | --
+*/
 module es_domain_mini {
+
     source          = "./.."
 
     in_subnet_ids       = module.vpc-network.out_public_subnet_ids
@@ -73,6 +69,13 @@ locals{
     in_timestamp = "190828"
     in_description = "was created recently."
 
+}
+
+
+provider aws {
+    assume_role {
+        role_arn = var.in_role_arn
+    }
 }
 
 
