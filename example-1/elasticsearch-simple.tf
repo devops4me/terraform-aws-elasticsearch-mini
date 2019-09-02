@@ -58,7 +58,7 @@ module security-group {
     in_ecosystem_name  = local.in_ecosystem
     in_tag_timestamp   = local.in_timestamp
     in_tag_description = local.in_description
-    in_mandatory_tags  = {}
+    in_mandated_tags  = {}
 }
 
 

@@ -36,7 +36,7 @@ resource aws_elasticsearch_domain mini {
         "rest.action.multi.allow_explicit_index" = "true"
     }
 
-    tags = merge( local.elasticsearch_tags, var.in_mandatory_tags )
+    tags = merge( local.elasticsearch_tags, var.in_mandated_tags )
 
 }
 
