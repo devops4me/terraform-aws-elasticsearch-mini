@@ -11,7 +11,7 @@
       "Action": [
         "es:*"
       ],
-      "Resource": "${aws_elasticsearch_domain.mini.arn}/*"
+      "Resource": "${elasticsearch_domain_name}/*"
     }
   ]
 }

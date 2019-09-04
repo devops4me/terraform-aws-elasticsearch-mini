@@ -74,6 +74,10 @@ resource aws_elasticsearch_domain_policy access {
 */
 data template_file es_policy_stmts {
     template = file( "${path.module}/elasticsearch-access.json" )
+    vars = {
+        elasticsearch_domain_name = aws_elasticsearch_domain.mini.arn
+    }
+
 }
 
 
