@@ -24,7 +24,15 @@ resource aws_elasticsearch_domain mini {
         subnet_ids          = [ element( var.in_subnet_ids, 0 ) ]
     }
 
+/*
+######################
+######################
+######################
     access_policies = data.aws_iam_policy_document.es-cloud-iam-policy.json
+######################
+######################
+######################
+*/
 
     ebs_options {
         ebs_enabled = true
