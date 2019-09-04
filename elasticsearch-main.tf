@@ -41,12 +41,40 @@ resource aws_elasticsearch_domain mini {
 }
 
 
+
+/*
+ | --
+ | -- As this module evolves, a feature will be added to optionally pass in
+ | -- the desired policy statements thus overriding this most commonly used
+ | -- access policy.
+ | --
+*/
+resource aws_elasticsearch_domain_policy access {
+
+  domain_name = aws_elasticsearch_domain.mini.domain_name
+  access_policies = data.template_file.es_policy_stmts.*.rendered
+
+}
+
+
+
+/*
+ | --
+ | -- This JSON file embodies the access policies for an elasticsearch
+ | -- instance that gives or denies access to the resource.
+ | --
+*/
+data template_file es_policy_stmts {
+    template = file( "${path.module}/elasticsearch-access.json" )
+}
+
+
+
 /*
  | --
  | -- Allow the ElasticSearch cluster management service to bring up ec2 instance
  | -- nodes and perform some other necessary activities.
  | --
-*/
 data aws_iam_policy_document es-cloud-iam-policy {
 
     statement {
@@ -62,6 +90,8 @@ data aws_iam_policy_document es-cloud-iam-policy {
         ]
     }
 }
+*/
+
 
 
 locals {
@@ -78,13 +108,16 @@ locals {
 ### [[data]] aws_caller_identity ###
 ### ############################ ###
 
+/*
 data aws_caller_identity with {
 }
-
+*/
 
 ### ################### ###
 ### [[data]] aws_region ###
 ### ################### ###
 
+/*
 data aws_region with {
 }
+*/
