@@ -25,13 +25,7 @@ resource aws_elasticsearch_domain mini {
     }
 
 /*
-######################
-######################
-######################
     access_policies = data.aws_iam_policy_document.es-cloud-iam-policy.json
-######################
-######################
-######################
 */
 
     ebs_options {
