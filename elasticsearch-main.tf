@@ -54,7 +54,7 @@ resource aws_elasticsearch_domain mini {
 resource aws_elasticsearch_domain_policy access {
 
   domain_name = aws_elasticsearch_domain.mini.domain_name
-  access_policies = data.template_file.es_policy_stmts.*.rendered
+  access_policies = data.template_file.es_policy_stmts.rendered
 
 }
 
